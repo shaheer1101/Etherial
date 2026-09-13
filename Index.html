@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <!-- Global Dynamic Toast Notification -->
+    <div class="toast" id="dynamicToast">
+        <span id="toastIcon">💌</span>
+        <span id="toastText">You found it. I meant every word.</span>
+    </div>
+
+    <!-- Scene 1: Hero Section -->
+    <section class="section" id="scene1">
+        <div class="hero-container">
+            <div class="badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                    <path d="M20 2v4"></path>
+                    <path d="M22 4h-4"></path>
+                    <circle cx="4" cy="20" r="2"></circle>
+                </svg>
+                a tiny apology dashboard
+            </div>
+            <h1>I'm really, really<br>sorry 🥺</h1>
+            <p class="description">
+                I built this whole little world just to say it. Play, scratch, whack, forgive — take your time. I'll be right here.
+            </p>
+            <p class="recipient">For E The Realll🧟‍♀️💗</p>
+            <button class="btn-primary" id="startBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path>
+                </svg>
+                Take my hand, let's begin
+            </button>
+        </div>
+    </section>
+
+    <!-- Scene 2: Anger-o-Meter -->
+    <section class="section" id="scene2">
+        <div class="card bg-hearts">
+            <div class="avatar-box">
+                <svg viewBox="0 0 200 200" class="bear-svg">
+                    <circle cx="55" cy="55" r="22" fill="#b57a5e"></circle>
+                    <circle cx="55" cy="55" r="12" fill="#e6b393"></circle>
+                    <circle cx="145" cy="55" r="22" fill="#b57a5e"></circle>
+                    <circle cx="145" cy="55" r="12" fill="#e6b393"></circle>
+                    <ellipse cx="100" cy="110" rx="70" ry="65" fill="#c98d6e"></ellipse>
+                    <ellipse cx="100" cy="125" rx="42" ry="35" fill="#f2d3b8"></ellipse>
+                    <ellipse cx="100" cy="118" rx="8" ry="5" fill="#2b1b24"></ellipse>
+                    <circle id="blush-left" cx="60" cy="130" r="9" fill="#ff7aa8" opacity="0" class="transition-opacity"></circle>
+                    <circle id="blush-right" cx="140" cy="130" r="9" fill="#ff7aa8" opacity="0" class="transition-opacity"></circle>
+                    
+                    <g id="angry-eyes">
+                        <path d="M75 100 q0 -10 10 -10 q10 0 10 10" stroke="#2b1b24" stroke-width="4" fill="none" stroke-linecap="round"></path>
+                        <path d="M105 100 q0 -10 10 -10 q10 0 10 10" stroke="#2b1b24" stroke-width="4" fill="none" stroke-linecap="round"></path>
+                        <path d="M82 108 q-4 12 0 20 q4 -8 0 -20z" fill="#5ac8fa"></path>
+                        <path d="M118 108 q-4 12 0 20 q4 -8 0 -20z" fill="#5ac8fa"></path>
+                    </g>
+                    <g id="neutral-eyes" opacity="0" style="display: none;">
+                        <circle cx="85" cy="95" r="5" fill="#2b1b24"></circle>
+                        <circle cx="115" cy="95" r="5" fill="#2b1b24"></circle>
+                    </g>
+                    <g id="happy-eyes" opacity="0" style="display: none;">
+                        <path d="M75 95 q10 -10 20 0" stroke="#2b1b24" stroke-width="4" fill="none" stroke-linecap="round"></path>
+                        <path d="M105 95 q10 -10 20 0" stroke="#2b1b24" stroke-width="4" fill="none" stroke-linecap="round"></path>
+                    </g>
+                    <path id="mouth" d="M85 145 q15 -10 30 0" stroke="#2b1b24" stroke-width="4" fill="none" stroke-linecap="round" class="transition-path"></path>
+                </svg>
+            </div>
+            
+            <div class="meter-header">
+                <div class="meter-title">Anger-o-Meter <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#ff5f8a" stroke="#ff5f8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></div>
+                <div class="status-badge" id="statusBadge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path></svg>
+                    <span id="badgeText">Fuming</span>
+                </div>
+            </div>
+
+            <div class="bars-container">
+                <div class="visual-progress-track">
+                    <div class="visual-progress-fill" id="visualBarFill"></div>
+                </div>
+                <input type="range" min="0" max="100" value="100" class="control-slider" id="angerSlider">
+            </div>
+            
+            <div class="slider-labels">
+                <span>💚Happy</span>
+                <span>❤️‍🔥 Sad</span>
+            </div>
+            <p class="dynamic-text" id="dynamicText">Take a deep breath… try sliding me left to calm down.</p>
+        </div>
+    </section>
+
+    <!-- Scene 3: Scratch Card -->
+    <section class="section" id="scene3">
+        <div class="card bg-hearts">
+            <div class="meter-header" style="margin-bottom: 24px;">
+                <div class="meter-title">A tiny secret 🤫</div>
+                <div class="status-badge" id="scratchBadgeText">✨ scratch me</div>
+            </div>
+
+            <div class="scratch-area" id="scratchArea">
+                <div class="hidden-content">
+                    <div style="font-size: 32px; margin-bottom: 12px;">💌</div>
+                    <p>No matter what happens, you will always be my absolute favorite person in the entire world.💗</p>
+                </div>
+                <canvas id="scratchCanvas"></canvas>
+                <div class="scratch-percent" id="scratchPercent">0% revealed</div>
+            </div>
+
+            <p class="preview-text">Preview — scratch it yourself to see what your recipient will unwrap.</p>
+            <button class="btn-outline hidden" id="resetBtn">↺ Scratch again</button>
+        </div>
+    </section>
+
+    <!-- Scene 4: Whack-a-Boyfriend -->
+    <section class="section" id="scene4">
+        <div class="card bg-hearts">
+            <div class="meter-header" style="margin-bottom: 8px;">
+                <div class="meter-title">Smash Me  🔨</div>
+            </div>
+            <p style="font-size: 14px; color: rgba(58,34,51,0.7); line-height: 1.5; margin-bottom: 16px;">
+                Every hit takes 10% off the anger meter — with a satisfying <b style="color: var(--primary-pink);">dishoom!</b> 💥
+            </p>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+                <div class="status-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                    <span id="hitCounter">Hits: 0/10</span>
+                </div>
+                <button class="status-badge" id="resetWhackBtn" style="cursor: pointer; background: #fff0f4; border: 1px solid var(--border-pink);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                    Reset
+                </button>
+            </div>
+
+            <div class="whack-grid" id="whackGrid">
+                <div class="hole-container" data-index="0"><div class="hole-back"></div><div class="mole">🥺</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="1"><div class="hole-back"></div><div class="mole">😅</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="2"><div class="hole-back"></div><div class="mole">🤪</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="3"><div class="hole-back"></div><div class="mole">😇</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="4"><div class="hole-back"></div><div class="mole">🥲</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="5"><div class="hole-back"></div><div class="mole">🥺</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="6"><div class="hole-back"></div><div class="mole">😅</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="7"><div class="hole-back"></div><div class="mole">🤪</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+                <div class="hole-container" data-index="8"><div class="hole-back"></div><div class="mole">😇</div><div class="hole-front"></div><div class="dishoom">💥 DISHOOM!</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 5: Sweet Bribery Desk -->
+    <section class="section" id="scene5">
+        <div class="card bg-hearts">
+            <div class="meter-header" style="margin-bottom: 8px;">
+                <div class="meter-title">Sweet Bribery Desk 🎁</div>
+            </div>
+            <p style="font-size: 14.5px; color: rgba(58,34,51,0.7); margin-bottom: 20px;">
+                Tick the promises — then make them official.
+            </p>
+
+            <div class="promise-list">
+                <label class="promise-item">
+                    <input type="checkbox" class="promise-checkbox" value="1x premium massage night">
+                    <span class="custom-check"></span>
+                    <span class="promise-text">🎮 Reinstalling our favorite game</span>
+                </label>
+                <label class="promise-item">
+                    <input type="checkbox" class="promise-checkbox" value="Your favorite feast tonight (on me)">
+                    <span class="custom-check"></span>
+                    <span class="promise-text">🍲 Playing daily.</span>
+                </label>
+                <label class="promise-item">
+                    <input type="checkbox" class="promise-checkbox" value="All the chores for 7 days">
+                    <span class="custom-check"></span>
+                    <span class="promise-text">🧹 Never do this again</span>
+                </label>
+                
+                
+            </div>
+
+            <button class="btn-primary" id="lockBriberyBtn" style="margin-top: 24px; width: 100%;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Lock it in (-30% anger)
+            </button>
+        </div>
+    </section>
+
+    <!-- Scene 7: Final Letter Section -->
+    <section class="section" id="scene7">
+        <div class="card bg-hearts" style="text-align: left;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                <span style="font-size: 24px;">💌</span>
+                <span style="font-size: 24px;">💌</span>
+            </div>
+            <h2 style="font-family: 'Fredoka', sans-serif; font-size: 22px; text-align: center; margin-bottom: 16px; color: var(--text-dark);">From the bottom of my heart</h2>
+            
+            <p style="font-family: 'Fredoka', sans-serif; font-size: 16px; margin-bottom: 14px; color: var(--primary-pink); font-weight: 600;">Dear Ehehehee ,</p>
+            
+            <p style="font-size: 14px; line-height: 1.6; color: rgba(58,34,51,0.85); margin-bottom: 20px;">
+                I know I messed up, and I've been replaying it in my head all day. You mean more to me than being right ever could. I'm sorry for hurting you — you deserve nothing but gentleness from me. Give me the chance to make it up to you, every single day.
+            </p>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <span style="font-size: 20px;">🌸</span>
+                <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; color: var(--primary-pink);">— Qazi 💗</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 8: Final Forgiveness Question -->
+    <section class="section" id="scene8">
+        <div class="card bg-hearts" style="text-align: center;">
+            <div style="font-size: 42px; margin-bottom: 12px;">🥺</div>
+            <h2 style="font-family: 'Fredoka', sans-serif; font-size: 28px; margin-bottom: 8px; color: var(--text-dark);">So… will you forgive me?</h2>
+            <p style="font-size: 14px; color: rgba(58,34,51,0.6); margin-bottom: 24px;">You've almost caught it — but your heart already knows 💗</p>
+
+            <div class="forgive-buttons-area" id="forgiveArea">
+                <button class="btn-primary" id="yesBtn" style="width: 100%; margin-bottom: 12px;">
+                    💖 Yes, I forgive you!
+                </button>
+                <button class="btn-outline" id="noBtn">
+                    No 🥺
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 6: Certificate of Forgiveness Modal (Shown after fingerprint verification) -->
+    <div class="modal-overlay" id="certModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <div class="cert-header-badge">
+                ✉️ Sealed & stamped — legally binding in my heart 💗
+            </div>
+            
+            <!-- Printable Certificate Paper Area -->
+            <div class="cert-paper" id="printableArea">
+                <div class="cert-stamp-box">
+                    <span>GOVERNMENT OF LOVE</span>
+                    <strong>Rs100</strong>
+                    <small>RECONCILIATION ==</small>
+                </div>
+                
+                <h2>Deed of Reconciliation</h2>
+                <p class="cert-sub">forgiveness, granted on loving conditions</p>
+                
+                <p class="cert-body-text">
+                    <b>Ehehehee</b> (the "Forgiver") hereby grants heartfelt forgiveness to <b>Qazi</b> (the "Apologiser"), <b>strictly on the loving condition</b> that the Apologiser faithfully fulfills each promise set out below:
+                </p>
+
+                <!-- Dynamic filtered promises list -->
+                <ol class="cert-list" id="certPromisesList">
+                    <!-- Javascript will inject only selected items here -->
+                </ol>
+
+                <p class="cert-footer-text">
+                    Upon these conditions the said misunderstanding stands forgiven; all grudges are released, effective immediately. Any breach is remediable by extra cuddles. Valid for eternity ∞. Ref No. IN-BRQ856
+                </p>
+
+                <div class="cert-signatures">
+                    <div class="sig-box">
+                        <div class="sig-thumb">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e64072" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+                        </div>
+                        <b>Qazi</b>
+                        <span>Apologiser · seeks forgiveness</span>
+                    </div>
+                    <div class="sig-stamp-circle">
+                        <span>SEALED WITH</span>
+                        <strong>= LOVE =</strong>
+                    </div>
+                    <div class="sig-box">
+                        <div class="sig-thumb">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e64072" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+                        </div>
+                        <b>Auntieeeee</b>
+                        <span>Forgiver · grants forgiveness</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="downloadPdfBtn" style="width: 100%; margin-bottom: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download PDF
+            </button>
+            <a href="https://wa.me/923295618970?text=Be%20happy%20i%20forgive%20you" target="_blank" class="btn-outline" id="whatsappBtn" style="text-decoration: none; text-align: center; display: block; width: 100%; background: #25D366; color: white; border-color: #25D366;">
+                💬 Awww, thank you 💗 (WhatsApp)
+            </a>
+        </div>
+    </div>
+
+    <!-- Real Fingerprint Scanner Popup Modal (Triggered on Yes click) -->
+    <div class="modal-overlay" id="scannerModal">
+        <div class="scanner-card">
+            <h3>Seal it with your thumb 💗</h3>
+            <p>Press & hold for 3 seconds</p>
+            <div class="scanner-circle-box" id="scannerTouchArea">
+                <div class="scanner-ring"></div>
+                <!-- Real Professional Fingerprint SVG Graphic -->
+                <svg class="real-fingerprint" viewBox="0 0 24 24" width="56" height="56" stroke="#e64072" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a10 10 0 0 0-7.5 16.5"></path>
+                    <path d="M12 6a6 6 0 0 0-4.5 10"></path>
+                    <path d="M12 10a2 2 0 0 0-1.5 3.5"></path>
+                    <pa
